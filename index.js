@@ -1,40 +1,57 @@
 /************************************************************** Task 1: Warm-up! **************************************************************/
-//Task a: declare a variable called votingAge, console log true if age > 18 (no function required)
-
+//Task a: declare a variable called votingAge, console log true 
+//if age > 18 (no function required)
+console.log("Task 1: Warm-up!");
+console.log("Task a");
 const votingAge = 18;
-if (votingAge > 18){
-    console.log("true");
+if (votingAge > 18) {
+    console.log(true);
 }
+console.log();
 
-//Task b: declare a variable and then use a conditional to change the value of that variable based on the value assigned to a second variable (no function required)
+//Task b: declare a variable and then use a conditional to change the 
+//value of that variable based on the value assigned to a second variable (no function required)
+console.log("Task b");
+const breakpoint = 0.5;
+let value = 0.3;
+if (value >= breakpoint) {
+    value = 1;
+}else {
+    value = 0;
+}
+console.log(value);
+console.log();
 
-
-
-
-
-//Task c: Convert string ("1999") to integer (1999)  (no function required) // hint look up the Number method
-
-
-
-
+//Task c: Convert string ("1999") to integer (1999)  (no function required) 
+// hint look up the Number method
+console.log("Task c");
+let stringNum = "1999";
+let num = Number(stringNum);
+console.log(typeof(num));
+console.log(num);
+console.log()
 
 //Task d: Write a function to multiply a*b 
+console.log("Task d");
+const multiply = (a,b) => a * b;
 
-
-
-
+console.log(multiply(3,3));
+console.log(multiply(10,5));
+console.log();
 
 /************************************************************** Task 2 **************************************************************/
 //Age in Dog years
 //write a function that takes your age and returns it to you in dog years - they say that 1 human year is equal to seven dog years 
+console.log("Task 2 - Age in Dog Years\n");
 
-
-
-
-
+const ageInDogYears = (humanAge) => humanAge * 7;
+const myAge = 45;
+console.log(`My age, ${myAge}, is ${ageInDogYears(myAge)} in dog years.\n`);
+console.log();
 /************************************************************** Task 3 **************************************************************/
 //Dog feeder 
-//takes weight in pounds and age in years (note if the dog is a puppy the age will be a decimal) and returns the number of pounds of raw food to feed in a day.
+//takes weight in pounds and age in years (note if the dog is a puppy the age will be a decimal) 
+//and returns the number of pounds of raw food to feed in a day.
 
 //feeding requirements
 // adult dogs at least 1 year 
@@ -48,10 +65,45 @@ if (votingAge > 18){
 // 4 - 7 months 5% of their body weight 
 // 7 - 12 months 4% of their body weight
 
-// when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
-  
+// when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - 
+// if your calculations are correct your result should be 0.44999999999999996
+console.log('Task 3 - Dog Feeder\n')
 
-
+function dogFeeder(weight, age) {
+    // Calculate dry food amount per day for a puppy or a dog
+    if (age < 1 ){
+    return `Your ${age}-year old puppy needs ${calculatePuppyFood(weight, age)}lbs of dry dog food a day.\n`;
+    }else {
+    return `Your ${weight}lb dog needs ${calculateDogFood(weight)}lbs of dry dog food a day.\n`;
+    }
+}
+function calculatePuppyFood(weight, age){
+    //calculate dry food amount for puppies less than 1 year old
+    if (age < 1/6){
+    return (0);
+    }else if (age <= 1/3) {
+        return weight * 0.10;
+    }else if (age <= 7/12){
+        return weight * 0.05;
+    }else {
+        return weight * 0.04;
+    }
+}
+function calculateDogFood(weight){
+    //calculate dry food amount for dogs 1 year old or older
+    if (weight <= 5){
+        return weight * 0.05;
+    }else if (weight <= 10) {
+        return weight * 0.04;
+    }else if (weight <= 15){
+        return weight * .03;
+    }else {
+        return weight * .02;
+    }
+}
+console.log(dogFeeder(15,1));
+// console.log(dogFeeder(8, 3/4));
+// console.log(dogFeeder(3, 1/12));
 
 
 /************************************************************** Task 4 **************************************************************/
@@ -60,8 +112,78 @@ if (votingAge > 18){
 // it should return you won or you lost based on the rules of the game (you may need to look up the rules if you have not played before)
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
+console.log('Task 4 = Rock, Paper, Scissors\n')
 
-  
+function playRPS(userEntry){
+    // convert userChoice into an integer value (0,1,2) for easier comparison with computer choice
+    const userChoice = convertUserChoice(userEntry);
+
+    // if userChoice is invalid, end the game
+    if (userChoice === -1) {
+        console.log(`A ${userEntry} is not a valid choice.\n`);
+        return;
+    }
+
+    // generate a random integer value (0,1,2) for computer choice
+    const compChoice = getCompChoice();
+
+    // display user choice
+    console.log(`You chose ${userEntry}.`);
+    // use an array index to display computer's choice to user
+    const compEntries = ['rock', 'paper', 'scissors'];
+    console.log(`I chose ${compEntries[compChoice]}.`);  
+
+    // determine winner and display message
+    const gameMessage = compareChoices(userChoice, compChoice);
+    console.log(gameMessage);
+    console.log();
+}
+
+function convertUserChoice(userEntry){
+    //convert userEntry into a userChoice value for comparison
+    if (userEntry === 'rock') {
+        return 0;
+    }else if (userEntry === 'paper') {
+        return 1;
+    }else if (userEntry === 'scissors') {
+        return 2;
+    }else {
+        return -1; // flag value for invalid choice
+    }
+}
+function getCompChoice(){
+    // generate a random integer (0,1,2) for computer choice
+    return Math.floor(Math.random() * 3);
+}
+
+function compareChoices(userChoice, compChoice){
+    //set up game logic to determine the winner  
+    if (userChoice === compChoice) { // check for a tie
+        return "We tied!";
+    }else if (userChoice === 0){ // user chooses rock
+        if(compChoice === 1){   //computer chooses paper
+            return "You lose.";
+        }else {                 //computer chooses scissors
+            return "You win!";
+        }
+    }else if (userChoice === 1){ // user chooses paper
+        if (compChoice === 0) {  // computer chooses rock
+            return "You win!"
+        }else {                  // computer chooses scissors
+            return "You lose."
+        }
+    }else {                     //user chooses scissors
+        if (compChoice === 0){  // computer chooses rock
+            return "You lose."
+        }else {
+            return "You win!"   //computer chooses paper
+        }
+    } 
+}
+  playRPS("rock");
+  playRPS("paper");
+  playRPS("scissors");
+  playRPS('stapler');
   
 
 /************************************************************** Task 5 **************************************************************/
