@@ -107,8 +107,8 @@ console.log(dogFeeder(15,1));
 
 
 /************************************************************** Task 4 **************************************************************/
-// Rock, Paper, Sissors
-// Your function should take a string (either rock paper or sissors)
+// Rock, Paper, Scissors
+// Your function should take a string (either rock paper or scissors)
 // it should return you won or you lost based on the rules of the game (you may need to look up the rules if you have not played before)
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
@@ -189,6 +189,8 @@ function compareChoices(userChoice, compChoice){
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
+
+console.log("Task 5 - Metric Converter\n");
 // conversion factor km to miles: 1 Kilometer (km) is equal to 0.62137119223 mile.
 const kmToMi = (km) => km * 0.62137119223;
 
@@ -197,6 +199,7 @@ console.log(kmToMi(10));
 console.log();
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
+
 // conversion factor feet to cm: 1 foot is equal to 30.48 cm.
 const ftToCm = (ft) => ft * 30.48;
 console.log(ftToCm(5));
@@ -207,8 +210,22 @@ console.log();
 /************************************************************** Task 6 **************************************************************/
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
-// the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
-  
+// the function should take a starting number as an argument and count down - at each iteration it should log 
+// (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
+console.log("Task 6 - 99 bottles of soda on the wall \n");
+
+function annoyingSong(number){
+    //create a for loop to count down from the number given
+    for (let i = number; i > 0; i--){
+        console.log(`${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i - 1} bottles of soda on the wall.`);
+    }
+    console.log();
+}
+
+annoyingSong(10);
+// annoyingSong(0);
+// annoyingSong(1);
+// annoyingSong(99);
 
 
 
