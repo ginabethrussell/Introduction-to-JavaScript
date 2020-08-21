@@ -238,9 +238,29 @@ annoyingSong(10);
 //70s should be Cs 
 //60s should be D 
 //and anything below 60 should be F
-  
+console.log('Task 7 - Grade Calculator\n');
 
-  
+function assignLetterGrade(number){
+    if (number >= 90){
+        return 'A';
+    }else if (number >= 80){
+        return 'B';
+    }else if (number >= 70){
+        return 'C';
+    }else if (number >=60){
+        return 'D';
+    }else {
+        return 'F';
+    }
+}
+
+console.log(assignLetterGrade(70));
+console.log(assignLetterGrade(95));
+console.log(assignLetterGrade(50));
+console.log(assignLetterGrade(83));
+console.log(assignLetterGrade(66));
+
+console.log();
   
 
 /************************************************************** Stretch **************************************************************/
