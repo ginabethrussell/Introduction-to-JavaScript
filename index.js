@@ -267,14 +267,31 @@ console.log();
 //Create a function that counts the number of vowels within a string. It should handle both capitalized and uncapitalized vowels.
 // Hint - you may need to study tomorrow's traning kit on arrays 
 // try looking up the .includes() method
+console.log('Stretch Task - Create a function that counts vowels in a string\n');
 
+// create an array of vowels to check
+const vowelArr = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u'];
 
+function countVowels(textString){
+    const stringLength = textString.length;
+    let vowelCount = 0;
+    // loop through the string one character at a time, adding one to the vowel count if it's in the vowel array
+    for (let i = 0; i < stringLength; i++ ){
+        if (vowelArr.includes(textString[i])) {
+            vowelCount++;
+        }
+    }
+    return `The total number of vowels in \'${textString}\' is ${vowelCount}.`;
+}
 
-
+console.log(countVowels('Create a function that counts the number of vowels within a string.'));
+// console.log(countVowels('The quick brown fox jumped over the lazy dog.'));
+// console.log(countVowels('ThE quIck brOwn fOx jUmpEd OvEr thE lAzy dOg.'));
+console.log();
 
 /************************************************************** Stretch **************************************************************/
 //Take Rock, Paper, Sissors further
-//update your rock papers sissors code below to take a prompt from a user using the window object
+//update your rock papers scissors code below to take a prompt from a user using the window object
 
 
 
