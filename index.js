@@ -189,15 +189,19 @@ function compareChoices(userChoice, compChoice){
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
+// conversion factor km to miles: 1 Kilometer (km) is equal to 0.62137119223 mile.
+const kmToMi = (km) => km * 0.62137119223;
 
-
-
-
+console.log(kmToMi(5));
+console.log(kmToMi(10));
+console.log();
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
-  
-
-
+// conversion factor feet to cm: 1 foot is equal to 30.48 cm.
+const ftToCm = (ft) => ft * 30.48;
+console.log(ftToCm(5));
+console.log(ftToCm(10));
+console.log();
 
 
 /************************************************************** Task 6 **************************************************************/
