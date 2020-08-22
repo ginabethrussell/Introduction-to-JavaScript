@@ -159,30 +159,21 @@ function getCompChoice(){
     return Math.floor(Math.random() * 3);
 }
 
+// compare choices and return game tie, win, or lose message
 function compareChoices(userChoice, compChoice){
-    //set up game logic to determine the winner  
-    if (userChoice === compChoice) { // check for a tie
+    //check for a tie
+    if (userChoice === compChoice){
         return "We tied!";
-    }else if (userChoice === 0){ // user chooses rock
-        if(compChoice === 1){   //computer chooses paper
-            return "You lose.";
-        }else {                 //computer chooses scissors
-            return "You win!";
-        }
-    }else if (userChoice === 1){ // user chooses paper
-        if (compChoice === 0) {  // computer chooses rock
-            return "You win!"
-        }else {                  // computer chooses scissors
-            return "You lose."
-        }
-    }else {                     //user chooses scissors
-        if (compChoice === 0){  // computer chooses rock
-            return "You lose."
-        }else {
-            return "You win!"   //computer chooses paper
-        }
-    } 
+        //use logical operators for all possible wins
+    }else if (userChoice === 0 && compChoice === 2 || //rock beats scissors
+                userChoice === 1 && compChoice === 0 || //paper beats rock
+                userChoice === 2 && compChoice === 1) { //scissors beat paper
+        return "You win!"
+    }else {
+        return "You lose!"
+    }
 }
+
   playRPS("rock");
   playRPS("paper");
   playRPS("scissors");
@@ -367,29 +358,19 @@ console.log();
 // }
 
 // function compareChoices(userChoice, compChoice){
-//     //set up game logic to determine the winner  
-//     if (userChoice === compChoice) { // check for a tie
+//     //check for a tie
+//     if (userChoice === compChoice){
 //         return "We tied!";
-//     }else if (userChoice === 0){ // user chooses rock
-//         if(compChoice === 1){   //computer chooses paper
-//             return "You lose.";
-//         }else {                 //computer chooses scissors
-//             return "You win!";
-//         }
-//     }else if (userChoice === 1){ // user chooses paper
-//         if (compChoice === 0) {  // computer chooses rock
-//             return "You win!"
-//         }else {                  // computer chooses scissors
-//             return "You lose."
-//         }
-//     }else {                     //user chooses scissors
-//         if (compChoice === 0){  // computer chooses rock
-//             return "You lose."
-//         }else {
-//             return "You win!"   //computer chooses paper
-//         }
-//     } 
+//         //use logical operators for all possible wins
+//     }else if (userChoice === 0 && compChoice === 2 || //rock beats scissors
+//                 userChoice === 1 && compChoice === 0 || //paper beats rock
+//                 userChoice === 2 && compChoice === 1) { //scissors beat paper
+//         return "You win!"
+//     }else {
+//         return "You lose!"
+//     }
 // }
+
 
 // playRPS();
 
